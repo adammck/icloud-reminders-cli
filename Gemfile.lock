@@ -1,0 +1,51 @@
+GIT
+  remote: https://github.com/adammck/ruby-icloud.git
+  revision: 0c689a1cf862bf8522e5b8bf823eeae9f5baa8d5
+  specs:
+    icloud (0.0.1)
+      mechanize
+      uuidtools
+
+PATH
+  remote: .
+  specs:
+    icloud-reminders-cli (0.1)
+      trollop
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    ansi (1.4.3)
+    domain_name (0.5.7)
+      unf (~> 0.0.3)
+    mechanize (2.5.1)
+      domain_name (~> 0.5, >= 0.5.1)
+      mime-types (~> 1.17, >= 1.17.2)
+      net-http-digest_auth (~> 1.1, >= 1.1.1)
+      net-http-persistent (~> 2.5, >= 2.5.2)
+      nokogiri (~> 1.4)
+      ntlm-http (~> 0.1, >= 0.1.1)
+      webrobots (~> 0.0, >= 0.0.9)
+    mime-types (1.19)
+    minitest (4.5.0)
+    net-http-digest_auth (1.2.1)
+    net-http-persistent (2.8)
+    nokogiri (1.5.6)
+    ntlm-http (0.1.1)
+    trollop (2.0)
+    turn (0.9.6)
+      ansi
+    unf (0.0.5)
+      unf_ext
+    unf_ext (0.0.5)
+    uuidtools (2.1.3)
+    webrobots (0.0.13)
+
+PLATFORMS
+  ruby
+
+DEPENDENCIES
+  icloud!
+  icloud-reminders-cli!
+  minitest
+  turn
