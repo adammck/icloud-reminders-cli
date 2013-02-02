@@ -31,4 +31,18 @@ class TestCli < MiniTest::Unit::TestCase
     assert_equal "", err
     assert_equal "No reminders.\n", out
   end
+
+  def test_list_reminders
+    @session.expect(:reminders, [
+      mock(title: "Alpha"),
+      mock(title: "Beta")
+    ])
+
+    out, err = capture_io do
+      cli("-l").run
+    end
+
+    assert_equal "", err
+    assert_equal ["01. Alpha", "02. Beta"], out.split("\n")
+  end
 end

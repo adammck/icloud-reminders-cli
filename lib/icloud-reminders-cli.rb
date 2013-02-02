@@ -15,6 +15,10 @@ class ICloudRemindersCli
     "Usage: icloud-reminders-cli [options]"
   end
 
+  def error(str)
+    $stderr.puts(str)
+  end
+
   def run
     if @options[:list]
       reminders.tap do |r|
@@ -27,7 +31,7 @@ class ICloudRemindersCli
         end
       end
     else
-      $stderr.puts(usage)
+      error(usage)
     end
   end
 

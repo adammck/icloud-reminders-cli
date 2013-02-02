@@ -8,3 +8,15 @@ require "minitest/mock"
 # failing. We don't use FakeWeb otherwise.
 require "fakeweb"
 FakeWeb.allow_net_connect = false
+
+class Object
+  def mock(methods)
+    Object.new.tap do |obj|
+      methods.each do |key, val|
+        obj.define_singleton_method(key) do
+          val
+        end
+      end
+    end
+  end
+end
