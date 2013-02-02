@@ -4,10 +4,27 @@
 require "icloud"
 require "trollop"
 
+class Driver
+  def initialize(username, password)
+    @session ||= ICloud::Session.new(apple_id, password)
+  end
+
+  def list_reminders
+    session.reminders
+  end
+
+  def add_reminder(title)
+    session.post_reminder(ICloud::Records::Reminder.new.tap do |r|
+      r.title = title
+    end)
+  end
+end
+
 class ICloudRemindersCli
   def initialize(*argv)
     @options = Trollop::options(argv) do
       opt :list, "Show existing reminders"
+      opt :new, "Create a reminder", :type => :strings
     end
   end
 
@@ -21,7 +38,7 @@ class ICloudRemindersCli
 
   def run
     if @options[:list]
-      reminders.tap do |r|
+      driver.reminders.tap do |r|
         if r.any?
           r.each_with_index do |reminder, i|
             puts(sprintf("%02d. %s", (i+1), reminder.title))
@@ -30,19 +47,20 @@ class ICloudRemindersCli
           puts("No reminders.")
         end
       end
+
+    elsif @options[:new]
+      driver.add_reminder(@options[:new].join(" "))
+      puts("Added.")
+
     else
       error(usage)
     end
   end
 
-  def reminders
-    session.reminders#.reject(&:completed_date)
-  end
-
   private
 
-  def session
-    @session ||= ICloud::Session.new(apple_id, password)
+  def driver
+    @driver ||= Driver.new(apple_id, password)
   end
 
   def apple_id
