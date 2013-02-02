@@ -5,15 +5,9 @@ require "icloud"
 require "trollop"
 
 class ICloudRemindersCli
-  def initialize
-    @options = nil
-  end
-
-  def parse(argv=[])
-    self.tap do
-      @options = Trollop::options(argv) do
-        opt :list, "Show existing reminders"
-      end
+  def initialize(*argv)
+    @options = Trollop::options(argv) do
+      opt :list, "Show existing reminders"
     end
   end
 
