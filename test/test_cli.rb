@@ -34,8 +34,8 @@ class TestCli < MiniTest::Unit::TestCase
 
   def test_list_reminders
     @driver.expect(:reminders, [
-      mock(title: "Alpha"),
-      mock(title: "Beta")
+      mock(:title => "Alpha"),
+      mock(:title => "Beta")
     ])
 
     out, err = capture_io do

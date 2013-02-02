@@ -10,6 +10,7 @@ Gem::Specification.new do |gem|
   gem.summary       = %q{Command-line tool for managing iCloud reminders}
   gem.homepage      = "https://github.com/adammck/icloud-reminders-cli"
 
+  gem.add_dependency "json"
   gem.add_dependency "trollop"
 
   gem.files         = `git ls-files`.split($\)

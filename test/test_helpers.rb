@@ -13,9 +13,9 @@ class Object
   def mock(methods)
     Object.new.tap do |obj|
       methods.each do |key, val|
-        obj.define_singleton_method(key) do
-          val
-        end
+
+        # Ruby 1.8.7 doesn't have define_singleton_method :(
+        (class << obj; self; end).send(:define_method, key, lambda { val })
       end
     end
   end
