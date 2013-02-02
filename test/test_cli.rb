@@ -7,7 +7,7 @@ class TestCli < MiniTest::Unit::TestCase
   end
 
   def cli(command_line="")
-    ICloudRemindersCli.new(*command_line.split).tap do |cli|
+    ICloud::Reminders::Cli.new(*command_line.split).tap do |cli|
       cli.instance_variable_set(:@driver, @driver)
     end
   end
