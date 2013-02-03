@@ -22,7 +22,7 @@ class TestCli < MiniTest::Unit::TestCase
   end
 
   def test_no_reminders
-    @driver.expect(:reminders, [])
+    @driver.expect(:list_reminders, [])
 
     out, err = capture_io do
       cli("-l").run
@@ -33,7 +33,7 @@ class TestCli < MiniTest::Unit::TestCase
   end
 
   def test_list_reminders
-    @driver.expect(:reminders, [
+    @driver.expect(:list_reminders, [
       mock(:title => "Alpha"),
       mock(:title => "Beta")
     ])

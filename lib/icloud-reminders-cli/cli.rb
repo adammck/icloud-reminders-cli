@@ -23,7 +23,7 @@ module ICloud
 
       def run
         if @options[:list]
-          driver.reminders.tap do |r|
+          driver.list_reminders.tap do |r|
             if r.any?
               r.each_with_index do |reminder, i|
                 puts(sprintf("%02d. %s", (i+1), reminder.title))

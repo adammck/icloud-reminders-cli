@@ -2,4 +2,4 @@
 # vim: et ts=2 sw=2
 
 require "icloud-reminders-cli"
-ICloudRemindersCli.new(*ARGV).run
+ICloud::Reminders::Cli.new(*ARGV).run
