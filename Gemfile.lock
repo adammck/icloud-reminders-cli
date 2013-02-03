@@ -1,8 +1,10 @@
 GIT
   remote: https://github.com/adammck/ruby-icloud.git
-  revision: 0c689a1cf862bf8522e5b8bf823eeae9f5baa8d5
+  revision: 09d95e7e71411b5878acddd65b6ee0819f439632
+  branch: master
   specs:
     icloud (0.0.1)
+      json
       mechanize
       uuidtools
 
