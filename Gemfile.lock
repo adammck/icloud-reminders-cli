@@ -12,8 +12,7 @@ PATH
   remote: .
   specs:
     icloud-reminders-cli (0.1)
-      json
-      trollop
+      thor
 
 GEM
   remote: https://rubygems.org/
@@ -37,7 +36,7 @@ GEM
     net-http-persistent (2.8)
     nokogiri (1.5.6)
     ntlm-http (0.1.1)
-    trollop (2.0)
+    thor (0.17.0)
     turn (0.9.6)
       ansi
     unf (0.0.5)

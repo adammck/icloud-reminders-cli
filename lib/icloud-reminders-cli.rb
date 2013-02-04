@@ -6,5 +6,5 @@ module ICloud
   end
 end
 
-require "icloud-reminders-cli/cli"
+require "icloud-reminders-cli/app"
 require "icloud-reminders-cli/driver"
