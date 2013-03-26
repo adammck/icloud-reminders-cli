@@ -1,5 +1,6 @@
 #!/usr/bin/env ruby
 # vim: et ts=2 sw=2
+# encoding: UTF-8
 
 require "thor"
 
@@ -18,10 +19,11 @@ module ICloud
 
         if reminders.any?
           reminders.each_with_index do |reminder, i|
-            puts reminder.title
+            status = reminder.complete? ? "☑" : "☐"
+            puts status + " " + reminder.title
 
             reminder.alarms.each do |alarm|
-              puts("Date: " + alarm.on_date.strftime("%d/%m/%Y %H:%M")) if alarm.on_date
+              puts("  Date: " + alarm.on_date.strftime("%d/%m/%Y %H:%M")) if alarm.on_date
             end
 
             puts
