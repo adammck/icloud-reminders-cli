@@ -18,7 +18,13 @@ module ICloud
 
         if reminders.any?
           reminders.each_with_index do |reminder, i|
-            puts(sprintf("%02d. %s", (i+1), reminder.title))
+            puts reminder.title
+
+            reminder.alarms.each do |alarm|
+              puts("Date: " + alarm.on_date.strftime("%d/%m/%Y %H:%M")) if alarm.on_date
+            end
+
+            puts
           end
         else
           puts("No reminders.")
